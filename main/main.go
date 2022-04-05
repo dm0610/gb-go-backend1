@@ -12,6 +12,6 @@ func main() {
 		fmt.Println("error:", err)
 		return
 	}
-	fmt.Printf("random number: %d\n", n.Int64())
 
+	fmt.Printf("random number: %d\n", n.Int64())
 }
