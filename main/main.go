@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
-	fmt.Println("Init Module in Repo")
+	rand.Seed(time.Now().UnixNano())
+	fmt.Println(rand.Int())
 }
