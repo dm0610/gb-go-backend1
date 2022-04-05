@@ -1,0 +1,24 @@
+name: Go
+
+on: [ push, pull_request ]
+
+jobs:
+
+  Lint_Build_Test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17.x
+        
+    - name: Lint
+      run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.43.0 && export MY_PATH=$(echo $GITHUB_REF | awk -F/ '{print $NF}') && cd $MY_PATH  && golangci-lint run -v
+
+    - name: Test
+      run:  export MY_PATH=$(echo $GITHUB_REF | awk -F/ '{print $NF}') && cd $MY_PATH  && go test .
+
+    - name: Build
+      run: export MY_PATH=$(echo $GITHUB_REF | awk -F/ '{print $NF}') && cd $MY_PATH  && go build .
