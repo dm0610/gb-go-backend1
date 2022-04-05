@@ -1,12 +1,17 @@
 package main
 
 import (
+	"crypto/rand"
 	"fmt"
-	"math/rand"
-	"time"
+	"math/big"
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
-	fmt.Println(rand.Int())
+	n, err := rand.Int(rand.Reader, big.NewInt(1000))
+	if err != nil {
+		fmt.Println("error:", err)
+		return
+	}
+	fmt.Printf("random number: %d\n", n.Int64())
+
 }
