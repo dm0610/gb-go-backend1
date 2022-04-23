@@ -16,9 +16,10 @@ jobs:
         
     - name: Lint
       run: $GITHUB_WORKSPACE/lint.sh
-
-#    - name: Test
+#     run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.43.0 && export MY_PATH=$(echo $GITHUB_REF | awk -F/ '{print $NF}') && cd $MY_PATH  && golangci-lint run -c $GITHUB_WORKSPACE/.golangci.yml -v
+    - name: Test
+      run : $GITHUB_WORKSPACE/test.sh
 #      run:  export MY_PATH=$(echo $GITHUB_REF | awk -F/ '{print $NF}') && cd $MY_PATH  && go test .
-#
-#    - name: Build
+    - name: Build
+      run : $GITHUB_WORKSPACE/build.sh    
 #      run: export MY_PATH=$(echo $GITHUB_REF | awk -F/ '{print $NF}') && cd $MY_PATH  && go build .
