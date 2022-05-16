@@ -20,3 +20,7 @@ http://localhost:8080/files/testfile4.txt
 File testfile4.txt has been successfully uploaded
 
 ```
+
+## HW05
+fasthttp/router использовать не хочу, потому что внешние зависимости.
+Выберу gorilla/mux потому что популярный. Будет проще найти примеры.
