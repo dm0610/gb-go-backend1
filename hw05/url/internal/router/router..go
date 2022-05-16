@@ -46,7 +46,7 @@ func CreateItemHandler() http.HandlerFunc {
 
 func GetItemHandler() http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		getItems := "GET ALL ITEMS"
+		getItems := "GET {id} ITEMS"
 		fmt.Fprintf(w, "ANSWER: %15v", getItems)
 	})
 }
