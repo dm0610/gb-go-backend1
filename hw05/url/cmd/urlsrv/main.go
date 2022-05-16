@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fmt"
-
+	"log"
+	"net/http"
 	_ "url/internal/models"
-	_ "url/internal/router"
+	"url/internal/router"
 )
 
 func main() {
-	fmt.Println("Hello World!")
+
+	log.Fatal(http.ListenAndServe(":8080", router.NewRouter()))
 }
