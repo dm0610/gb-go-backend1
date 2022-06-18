@@ -13,12 +13,12 @@ import (
 	"net/http/httptest"
 	"strconv"
 
-	"github.com/TomFern/go-mux-api"
+	_ "github.com/TomFern/go-mux-api"
 )
 
 var a main.App
 
-func TestMain(m *testing.M) {
+sfunc TestMain(m *testing.M) {
 	a = main.App{}
 	a.Initialize(
 		os.Getenv("TEST_DB_USERNAME"),

@@ -67,7 +67,7 @@ func (h *FileHandler) ListFilesHandler() http.HandlerFunc {
 		for _, f := range files {
 			content, _ := ioutil.ReadFile(h.UploadDir + "/" + f.Name())
 			detectedFileType := http.DetectContentType(content)
-			//fmt.Fprintln(w, "Name: ", f.Name(), " Size: ", f.Size(), "isDir: ", f.IsDir(), "Extension: ", filepath.Ext(string(f.Name())))
+			// fmt.Fprintln(w, "Name: ", f.Name(), " Size: ", f.Size(), "isDir: ", f.IsDir(), "Extension: ", filepath.Ext(string(f.Name())))
 			fmt.Fprintf(w, "Name: %15v;	Size: %3v;	isDir: %5v;	Extension: %5v; detectedFileType: %3v; \n", f.Name(), f.Size(), f.IsDir(), filepath.Ext(string(f.Name())), detectedFileType)
 
 		}
@@ -83,7 +83,7 @@ func (h *FileHandler) TypeFilesHandler() http.HandlerFunc {
 		for _, f := range files {
 			content, _ := ioutil.ReadFile(h.UploadDir + "/" + f.Name())
 			detectedFileType := http.DetectContentType(content)
-			//fmt.Fprintln(w, "Name: ", f.Name(), " Size: ", f.Size(), "isDir: ", f.IsDir(), "Extension: ", filepath.Ext(string(f.Name())))
+			// fmt.Fprintln(w, "Name: ", f.Name(), " Size: ", f.Size(), "isDir: ", f.IsDir(), "Extension: ", filepath.Ext(string(f.Name())))
 			fmt.Fprintf(w, "Name: %15v;	detectedFileType: %3v; \n", f.Name(), detectedFileType)
 
 		}

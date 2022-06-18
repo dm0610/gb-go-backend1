@@ -1,16 +1,16 @@
 linters-settings:
-  errcheck:
-    check-type-assertions: true
+#  errcheck:
+#    check-type-assertions: true
   goconst:
     min-len: 2
     min-occurrences: 3
-  gocritic:
-    enabled-tags:
-      - diagnostic
-      - experimental
-      - opinionated
-      - performance
-      - style
+#  gocritic:
+#    enabled-tags:
+#      - diagnostic
+#      - experimental
+#      - opinionated
+#      - performance
+#      - style
   govet:
     check-shadowing: true
   nolintlint:
@@ -25,17 +25,17 @@ linters:
     - depguard
     - dogsled
     - dupl
-    - errcheck
+#    - errcheck
     - exportloopref
     - exhaustive
     - goconst
-    - gocritic
+#    - gocritic
     - gofmt
     - goimports
 #    - gomnd
     - gocyclo
     - gosec
-    - gosimple
+#    - gosimple
     - govet
     - ineffassign
     - misspell
@@ -43,7 +43,7 @@ linters:
     - nakedret
     - prealloc
     - predeclared
-    - revive
+#    - revive
     - staticcheck
     - structcheck
     - stylecheck
@@ -54,7 +54,7 @@ linters:
     - unparam
     - varcheck
     - whitespace
-    - wsl
+#    - wsl
 
 run:
   issues-exit-code: 1
