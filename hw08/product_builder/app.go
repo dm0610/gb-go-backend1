@@ -4,17 +4,13 @@ package main
 
 import (
 	"database/sql"
-
-	// tom: for Initialize
 	"fmt"
 	"log"
 
-	// tom: for route handlers
 	"encoding/json"
 	"net/http"
 	"strconv"
 
-	// tom: go get required
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
 )
@@ -24,10 +20,6 @@ type App struct {
 	DB     *sql.DB
 }
 
-// tom: initial function is empty, it's filled afterwards
-// func (a *App) Initialize(user, password, dbname string) { }
-
-// tom: added "sslmode=disable" to connection string
 func (a *App) Initialize(user, password, dbname string) {
 	connectionString :=
 		fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", user, password, dbname)
@@ -40,18 +32,13 @@ func (a *App) Initialize(user, password, dbname string) {
 
 	a.Router = mux.NewRouter()
 
-	// tom: this line is added after initializeRoutes is created later on
 	a.initializeRoutes()
 }
 
-// tom: initial version
-// func (a *App) Run(addr string) { }
-// improved version
 func (a *App) Run(addr string) {
 	log.Fatal(http.ListenAndServe(":8010", a.Router))
 }
 
-// tom: these are added later
 func (a *App) getProduct(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, err := strconv.Atoi(vars["id"])
